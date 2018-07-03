@@ -6,6 +6,7 @@ regression test for https://github.com/swig/swig/commit/4b4e0180f42e992de6ff4584
 Usage
 -----
 
+::
     git clone https://github.com/jschueller/swig-field-example.git
     cd swig-field-example
     mkdir build && cd build
