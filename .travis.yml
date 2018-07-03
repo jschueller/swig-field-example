@@ -13,7 +13,7 @@ addons:
       - python3-dev
 
 install:
-  - git clone https://github.com/swig/swig.git && cd swig && ./autogen.sh && ./configure --prefix=$HOME/.local --without-alllang && make -j2 && make install
+  - git clone https://github.com/swig/swig.git && cd swig && ./autogen.sh && ./configure --prefix=$HOME/.local --without-alllang && make -j2 && make install && cd ..
 
 script:
   - mkdir build && cd build
