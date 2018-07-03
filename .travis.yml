@@ -20,7 +20,7 @@ script:
   - cmake -DPYTHON_EXECUTABLE=/usr/bin/python3 -DCMAKE_INSTALL_PREFIX=$HOME/.local ..
   - make install -j2
   - python3 ../test-fieldfunction.py
-  - rm -rf * 
+  - rm -rf * $HOME/.local/lib/python*
   - cmake -DPYTHON_EXECUTABLE=/usr/bin/python3 -DCMAKE_INSTALL_PREFIX=$HOME/.local -DSWIG_EXECUTABLE=$HOME/.local/bin/swig  ..
   - make install -j2
   - python3 ../test-fieldfunction.py
