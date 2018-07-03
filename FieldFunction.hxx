@@ -7,8 +7,8 @@ namespace OT {
   class FieldFunction
   {
   public:
-    FieldFunction();
-    FieldFunction(FieldFunctionImplementation * p_impl);
+    FieldFunction(): p_impl_(new FieldFunctionImplementation){}
+    FieldFunction(FieldFunctionImplementation * p_impl) : p_impl_(p_impl) {}
 //     FieldFunction(const FieldFunction & other);
   protected:
     FieldFunctionImplementation * p_impl_;

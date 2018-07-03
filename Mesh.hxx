@@ -5,8 +5,8 @@ namespace OT {
   class Mesh
   {
   public:
-    Mesh();
-    int getNVertices() const;
+    Mesh() : nVertices_(0) {}
+    int getNVertices() const {return nVertices_;}
   private:
     int nVertices_;
   };

@@ -7,13 +7,6 @@ endif ()
 
 project(field-example)
 
-set (CMAKE_INSTALL_RPATH ${CMAKE_INSTALL_PREFIX}/lib)
-set (CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
-
-add_library (OT SHARED FieldFunction.cxx FieldFunctionImplementation.cxx Mesh.cxx)
-
-install (TARGETS OT DESTINATION lib)
-
 
 
 find_package (PythonInterp REQUIRED)
@@ -37,11 +30,9 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 include_directories(${PYTHON_INCLUDE_DIRS})
-# set_property(SOURCE Mesh.i PROPERTY CPLUSPLUS ON)
-# set_property(SOURCE FieldFunction.i PROPERTY CPLUSPLUS ON)
+
 swig_add_library (openturns LANGUAGE python SOURCES openturns.i PythonFieldFunction.cxx)
 add_dependencies (${SWIG_MODULE_openturns_REAL_NAME} generate_swig_runtime)
-target_link_libraries (${SWIG_MODULE_openturns_REAL_NAME} OT)
 
 install (TARGETS ${SWIG_MODULE_openturns_REAL_NAME} DESTINATION ${PYTHON_SITE_PACKAGES})
 install (FILES ${CMAKE_CURRENT_BINARY_DIR}/openturns.py DESTINATION ${PYTHON_SITE_PACKAGES})

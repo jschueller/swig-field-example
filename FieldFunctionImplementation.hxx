@@ -7,7 +7,7 @@ namespace OT {
   class FieldFunctionImplementation
   {
   public:
-    FieldFunctionImplementation();
+    FieldFunctionImplementation() {}
   protected:
     Mesh inputMesh_;
   };
