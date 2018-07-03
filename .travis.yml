@@ -1,0 +1,26 @@
+language: c++
+dist: trusty
+sudo: false
+
+addons:
+  apt:
+    sources:
+      - george-edison55-precise-backports
+    packages:
+      - cmake
+      - cmake-data
+      - swig
+      - python3-dev
+
+install:
+  - git clone https://github.com/swig/swig.git && cd swig && ./autogen.sh && ./configure --prefix=$HOME/.local --without-alllang && make -j2 && make install
+
+script:
+  - mkdir build && cd build
+  - cmake -DPYTHON_EXECUTABLE=/usr/bin/python3 -DCMAKE_INSTALL_PREFIX=$HOME/.local ..
+  - make install -j2
+  - python3 ../test-fieldfunction.py
+  - rm -rf * 
+  - cmake -DPYTHON_EXECUTABLE=/usr/bin/python3 -DCMAKE_INSTALL_PREFIX=$HOME/.local -DSWIG_EXECUTABLE=$HOME/.local/bin/swig  ..
+  - make install -j2
+  - python3 ../test-fieldfunction.py
