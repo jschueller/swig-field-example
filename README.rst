@@ -5,7 +5,7 @@ swig field example
 .. image:: https://travis-ci.org/jschueller/swig-field-example.svg?branch=master
     :target: https://travis-ci.org/jschueller/swig-field-example
 
-regression test for https://github.com/swig/swig/commit/4b4e0180f42e992de6ff458477b70e4ec63ecb49 (https://github.com/swig/swig/pull/1279)
+demonstrates a swig regression since https://github.com/swig/swig/commit/4b4e018 (see discussion in https://github.com/swig/swig/pull/1279)
 
 Usage
 -----
