@@ -8,9 +8,7 @@ namespace OT {
   class PythonFieldFunction : public FieldFunctionImplementation
   {
   public:
-    PythonFieldFunction();
-
-    explicit PythonFieldFunction(PyObject * pyCallable);
+    explicit PythonFieldFunction(PyObject * pyCallable = 0);
 
   private:
     PyObject * pyObj_;
