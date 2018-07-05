@@ -5,7 +5,7 @@ namespace OT {
   class Mesh
   {
   public:
-    Mesh() : nVertices_(0) {}
+    Mesh(const int nVert = 0) : nVertices_(nVert) {}
     int getNVertices() const {return nVertices_;}
   private:
     int nVertices_;
