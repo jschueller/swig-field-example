@@ -1,13 +1,9 @@
 import openturns as ot
 
-class OpenTURNSPythonFieldFunction(object):
-    def __init__(self):
-        self.__mesh = ot.Mesh(42)
-    def getInputMesh(self):
-        return self.__mesh
+d1 = ot.Uniform(2,5)
+d2 = ot.Gumbel(3,4)
+print(d1 == d2)
+print(d1 != d2)
 
-obj = OpenTURNSPythonFieldFunction()
-
-f = ot.FieldFunction(obj)
 print('OK')
 

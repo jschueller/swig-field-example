@@ -1,8 +1,6 @@
-cmake_minimum_required (VERSION 3.1.0)
+cmake_minimum_required (VERSION 3.13)
 
-if (NOT DEFINED CMAKE_BUILD_TYPE)
-  set (CMAKE_BUILD_TYPE RelWithDebInfo CACHE STRING "Build type")
-endif ()
+set (CMAKE_BUILD_TYPE RelWithDebInfo CACHE STRING "Build type")
 
 
 project(field-example)
@@ -31,12 +29,11 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 include_directories(${PYTHON_INCLUDE_DIRS})
 
-if (CMAKE_VERSION VERSION_LESS 3.8)
-   swig_add_module (openturns python openturns.i PythonFieldFunction.cxx)
-else ()
-  swig_add_library (openturns LANGUAGE python SOURCES openturns.i PythonFieldFunction.cxx)
-endif ()
+swig_add_library (openturns LANGUAGE python SOURCES openturns.i)
+
 add_dependencies (${SWIG_MODULE_openturns_REAL_NAME} generate_swig_runtime)
 
 install (TARGETS ${SWIG_MODULE_openturns_REAL_NAME} DESTINATION ${PYTHON_SITE_PACKAGES})
 install (FILES ${CMAKE_CURRENT_BINARY_DIR}/openturns.py DESTINATION ${PYTHON_SITE_PACKAGES})
+
+add_executable(t_main main.cxx)
